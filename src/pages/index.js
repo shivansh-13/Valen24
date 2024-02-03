@@ -29,16 +29,16 @@ const ValentinePage = () => {
     'I have made this especially for you!',
     'Say yes and let the magic begin!',
     'You\'re breaking my heart!',
-    'Yash would be sad. Say yes!',
+    'I would be sad. Say yes!',
     'Last chance! Say yes and make my day!',
     'You are leaving me no choice! Say yes!'
   ];
   const handleClick = (answer) => {
     if (answer === 'No') {
-      setYesButtonSize((prevSize) => prevSize + 1);
+      setYesButtonSize((prevSize) => prevSize + 0.4);
       setPersuadeText(persuadeTexts[persuadeCount]);
       setPersuadeCount((prevCount) => prevCount + 1);
-      if (persuadeCount === persuadeTexts.length ) {
+      if (persuadeCount === persuadeTexts.length) {
         setShowNoButton(false);
       }
     } else {
@@ -49,7 +49,7 @@ const ValentinePage = () => {
       setTimeout(() => setShowThanks(true), 100);
     }
   };
-  
+
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -88,7 +88,7 @@ const ValentinePage = () => {
       </div>
 
       {showThanks && (
-        
+
         <div
           style={{
             position: 'fixed',
@@ -105,36 +105,37 @@ const ValentinePage = () => {
             animation: 'fadeIn 1s forwards',
           }}
         ><Confetti
-        active={showLeftConfetti}
-        config={{
-          angle: 90,
-          spread: 360,
-          startVelocity: 45,
-          elementCount: 140, // Adjust element count as needed
-          decay: 0.7,
-        }}
-      />
-        <Confetti
-        active={showLeftConfetti}
-        config={{
-          angle: 180,
-          spread: 360,
-          startVelocity: 40,
-          elementCount: 140, // Adjust element count as needed
-          decay: 0.9,
-        }}
-      />
+            active={showLeftConfetti}
+            config={{
+              angle: 90,
+              spread: 360,
+              startVelocity: 45,
+              elementCount: 140, // Adjust element count as needed
+              decay: 0.7,
+            }}
+          />
+          <Confetti
+            active={showLeftConfetti}
+            config={{
+              angle: 180,
+              spread: 360,
+              startVelocity: 40,
+              elementCount: 140, // Adjust element count as needed
+              decay: 0.9,
+            }}
+          />
           <h2 style={{ color: 'darkslategray', fontSize: '2em' }}>
             Thanks for being my valentine! Will be seeing you soon! 🥰
           </h2>
         </div>
       )}
-      
+
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
-      <p style={{ color: 'grey', fontSize: '15px' }}>
-        Made by Shivansh S with love 💜
-      </p>
-    </div>
+        <p style={{ color: 'grey', fontSize: '15px' }}>
+          Made by <a href="https://github.com/shivansh-13" style={{ color: 'grey', textDecoration: 'underline' }}>Shivansh S</a> with love 💜
+        </p>
+      </div>
+
       <style jsx>{`
         img {
           margin-top: 10px;
