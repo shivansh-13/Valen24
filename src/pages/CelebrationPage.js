@@ -1,120 +1,158 @@
 import React, { useEffect, useState } from 'react';
 import Confetti from 'react-dom-confetti';
 
+const WhiteScreen = () => (
+  <div
+    style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      animation: 'swipeInFromRight 1s forwards',
+
+    }}
+  >
+  </div>
+);
+
 const CelebrationPage = ({ onDone }) => {
-    const [showConfetti, setShowConfetti] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showWhiteScreen, setShowWhiteScreen] = useState(false);
 
-    useEffect(() => {
-        // Trigger the confetti animation after a delay
-        const timeoutId = setTimeout(() => {
-            setShowConfetti(true);
-        }, 1000);
+  useEffect(() => {
+    // Trigger the confetti animation after a delay
+    const confettiTimeoutId = setTimeout(() => {
+      setShowConfetti(true);
+    }, 1000);
 
-        return () => clearTimeout(timeoutId);
-    }, []);
+    // Automatically show the white screen after 2 seconds
+    const whiteScreenTimeoutId = setTimeout(() => {
+      setShowWhiteScreen(true);
+    }, 2000);
 
-    return (
-        <div
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'black',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                opacity: 0,
-                animation: 'fadeIn 1s forwards',
-                overflow: 'hidden', // Hide overflow to prevent scrolling
-            }}
-        >
-            {/* Confetti animation */}
-            
+    return () => {
+      clearTimeout(confettiTimeoutId);
+      clearTimeout(whiteScreenTimeoutId);
+    };
+  }, []);
 
-            {/* Morphing "&" letter */}
-            <div
-                style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '5em',
-                    fontWeight: 'bold',
-                    color: 'black',
-                    transform: 'scale(1.5)',
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 1, // Place it above the panes
-                }}
-            ><Confetti
-                active={showConfetti}
-                config={{
-                    angle: 90,
-                    spread: 360,
-                    startVelocity: 65,
-                    elementCount: 340,
-                    decay: 0.7,
-                }}
-            />
-                &
-            </div>
+  const handleCloseWhiteScreen = () => {
+    setShowWhiteScreen(false);
+  };
 
-<div
-  style={{
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '50%',
-    height: '100%',
-    background: 'red',
-    transform: 'translateY(100%)',
-    animation: 'slideInFromBottom 1s forwards',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'end',
-    paddingRight: '35px',
-  }}
->
-  <span style={{ color: 'white', textAlign: 'center',fontSize: '5em', fontWeight: 'bold', }}>You</span>
-</div>
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'black',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: 0,
+        animation: 'fadeIn 2s forwards',
+        zIndex:999,
+        overflow: 'hidden', // Hide overflow to prevent scrolling
+      }}
+    >
+      {/* Confetti animation */}
+   
 
-.
-<div
-  style={{
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    width: '50%',
-    height: '100%',
-    background: 'white',
-    transform: 'translateY(-100%)',
-    animation: 'slideInFromTop 1s forwards',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'begin',
-    paddingLeft: '35px',
-  }}
->
-  <span style={{ color: 'red', textAlign: 'center',fontSize: '5em', fontWeight: 'bold', }}>Me</span>
-</div>
+      {/* Morphing "&" letter */}
+      <div
+        style={{
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '5em',
+          fontWeight: 'bold',
+          color: 'black',
+          transform: 'scale(1.5)',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1, // Place it above the panes
+        }}
+      >
+         <Confetti
+        active={showConfetti}
+        config={{
+          angle: 90,
+          spread: 360,
+          startVelocity: 65,
+          elementCount: 340,
+          decay: 0.7,
+        }}
+      />
+        &
+      </div>
 
-            {/* Display text */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: 0,
-                    width: '100%',
-                    textAlign: 'center',
-                    zIndex: 2, // Place it above the panes
-                }}
-            >
-            </div>
+      {/* Left pane taking full height and sliding from bottom to top */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '50%',
+          height: '100%',
+          background: 'red',
+          transform: 'translateY(100%)',
+          animation: 'slideInFromBottom 1s forwards',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end', // Adjusted here
+          paddingRight: '35px',
+        }}
+      >
+        <span style={{ color: 'white', textAlign: 'center', fontSize: '5em', fontWeight: 'bold' }}>You</span>
+      </div>
 
-            {/* CSS animations */}
-            <style jsx>{`
+      {/* Right pane taking full height and sliding from top to bottom */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '50%',
+          height: '100%',
+          background: 'white',
+          transform: 'translateY(-100%)',
+          animation: 'slideInFromTop 1s forwards',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-start', // Adjusted here
+          paddingLeft: '35px',
+        }}
+      >
+        <span style={{ color: 'red', textAlign: 'center', fontSize: '5em', fontWeight: 'bold' }}>Me</span>
+      </div>
+
+      {/* Display text */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          width: '100%',
+          textAlign: 'center',
+          zIndex: 2, // Place it above the panes
+        }}
+      >
+      </div>
+
+      {/* White screen component */}
+      {showWhiteScreen && <WhiteScreen onClose={handleCloseWhiteScreen} />}
+
+      {/* CSS animations */}
+      <style jsx>{`
         @keyframes slideInFromTop {
           to {
             transform: translateY(0);
@@ -126,9 +164,18 @@ const CelebrationPage = ({ onDone }) => {
             transform: translateY(0);
           }
         }
+
+        @keyframes swipeInFromRight {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default CelebrationPage;
