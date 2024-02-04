@@ -1,9 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Confetti from 'react-dom-confetti';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import TimeInputPage from './TimeInputPage'; // Import the new component
 
-const LocationInputPage = ({ onBack }) => {
+const LocationInputPage = () => {
+    const [showTimeInputPage, setShowTimeInputPage] = useState(false);
+
+    const handleNext = () => {
+      // Set showTimeInputPage to true when the arrow button is clicked
+      setShowTimeInputPage(true);
+    };
   return (
     <div
       style={{
@@ -66,18 +71,23 @@ const LocationInputPage = ({ onBack }) => {
 
       {/* Back button to return to the previous screen */}
       <button
-        onClick={onBack}
+        onClick={handleNext}
         style={{
           backgroundColor: 'violet',
           color: 'white',
           borderRadius: '100%',
-          padding: '40px',
-          marginTop: '15px',
-          cursor: 'pointer',
+          paddingBottom: '30px',
+              marginTop: '15px',
+              paddingTop: '30px',
+              paddingRight: '40px',
+              paddingLeft: '40px',
+              cursor: 'pointer',
+              fontSize: '2em',
         }}
       >
-        ⬅
+         ➔
       </button>
+      {showTimeInputPage && <TimeInputPage onBack={() => setShowTimeInputPage(false)} />}
     </div>
   );
 };
