@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LocationInputPage from './LocationInputPage'; // Import the new component
 
 const DateInputPage = () => {
     const [day, setDay] = useState('');
@@ -15,6 +16,13 @@ const DateInputPage = () => {
   
     const handleYearChange = (event) => {
       setYear(event.target.value);
+    };
+
+    const [showLocationPage, setShowLocationPage] = useState(false);
+
+    const handleNextPage = () => {
+      // Show the LocationInputPage when the user clicks the arrow button
+      setShowLocationPage(true);
     };
     return (
         <div
@@ -35,7 +43,7 @@ const DateInputPage = () => {
             }}
         >
             <h2 style={{ color: 'white', fontSize: '2em' }}>
-                Why just soon? Let's plan a date!
+                Why just soon? Let's plan a date! Right here, right now! 
             </h2>
             {/* Add your date input fields or any other content for the new page */}
 
@@ -65,6 +73,25 @@ const DateInputPage = () => {
           placeholder="YYYY"
         />
       </div>
+      <button
+        onClick={handleNextPage}
+        style={{
+          backgroundColor: 'lightcyan',
+          color: 'gray',
+          borderRadius: '100%',
+              paddingBottom: '30px',
+              marginTop: '15px',
+              paddingTop: '30px',
+              paddingRight: '40px',
+              paddingLeft: '40px',
+              cursor: 'pointer',
+              fontSize: '2em',
+        }}
+      >
+        ➔
+      </button>
+
+      {showLocationPage && <LocationInputPage onBack={() => setShowLocationPage(false)} />}
 
             <style jsx>{`
                 @keyframes fadeInSlideIn {
