@@ -110,7 +110,7 @@ const CelebrationPage = () => {
                         spread: 360,
                         startVelocity: 65,
                         elementCount: 340,
-                        decay: 0.7,
+                        decay: 0.8,
                     }}
                 />
                 &

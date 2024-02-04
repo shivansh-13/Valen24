@@ -73,7 +73,7 @@ const LocationInputPage = () => {
             <button
                 onClick={handleNext}
                 style={{
-                    backgroundColor: 'violet',
+                    backgroundColor: 'darkgrey',
                     color: 'white',
                     borderRadius: '100%',
                     paddingBottom: '30px',
