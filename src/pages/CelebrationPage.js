@@ -13,14 +13,15 @@ const WhiteScreen = () => (
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      animation: 'swipeInFromRight 1s forwards',
+      zIndex: 3, // Place it above the panes
+      animation: 'swipeInFromRight 2s forwards',
 
     }}
   >
   </div>
 );
 
-const CelebrationPage = ({ onDone }) => {
+const CelebrationPage = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [showWhiteScreen, setShowWhiteScreen] = useState(false);
 
@@ -59,11 +60,11 @@ const CelebrationPage = ({ onDone }) => {
         alignItems: 'center',
         justifyContent: 'center',
         opacity: 0,
-        animation: 'fadeIn 2s forwards',
-        zIndex:999,
+        animation: 'fadeIn 1s forwards',
         overflow: 'hidden', // Hide overflow to prevent scrolling
       }}
     >
+       {showWhiteScreen && <WhiteScreen onClose={handleCloseWhiteScreen} />}
       {/* Confetti animation */}
    
 
@@ -149,7 +150,7 @@ const CelebrationPage = ({ onDone }) => {
       </div>
 
       {/* White screen component */}
-      {showWhiteScreen && <WhiteScreen onClose={handleCloseWhiteScreen} />}
+   
 
       {/* CSS animations */}
       <style jsx>{`
