@@ -1,5 +1,7 @@
 import React from 'react';
 import Confetti from 'react-dom-confetti';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const LocationInputPage = ({ onBack }) => {
   return (
@@ -20,9 +22,20 @@ const LocationInputPage = ({ onBack }) => {
         animation: 'fadeInSlideIn 1s forwards',
       }}
     >
+    
        <h2 style={{ color: 'white', fontSize: '2em' }}>
-        Perfect
+        Perfect!
         <br/>
+        <Confetti
+        active={true}
+        config={{
+          angle: 90,
+          spread: 360,
+          startVelocity: 45,
+          elementCount: 140,
+          decay: 0.7,
+        }}
+      />
         </h2>
       <h2 style={{ color: 'white', fontSize: '1.5em' }}>
       The date is fixed! Let's fix the place?
@@ -37,16 +50,7 @@ const LocationInputPage = ({ onBack }) => {
         }}
         > 
         You Decide!</h1>
-      <Confetti
-        active={true}
-        config={{
-          angle: 90,
-          spread: 360,
-          startVelocity: 45,
-          elementCount: 140,
-          decay: 0.7,
-        }}
-      />
+      
       {/* Add your search bar and map components here */}
       {/* For demonstration purposes, let's use a simple search input */}
       <input
