@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Confetti from 'react-dom-confetti';
+import DateInputPage from './DateInputPage'; // Import the new component
+
 
 const ValentinePage = () => {
   const [yesButtonSize, setYesButtonSize] = useState(1);
@@ -7,6 +9,7 @@ const ValentinePage = () => {
   const [persuadeCount, setPersuadeCount] = useState(0);
   const [showNoButton, setShowNoButton] = useState(true);
   const [showThanks, setShowThanks] = useState(false);
+  const [showInputPage, setShowInputPage] = useState(false); // State for the new input page
 
   const [showLeftConfetti, setShowLeftConfetti] = useState(false);
 
@@ -15,6 +18,7 @@ const ValentinePage = () => {
       setTimeout(() => setShowLeftConfetti(true), 200);
     }
   }, [showThanks]);
+  
 
   const persuadeTexts = [
     'Are you sure? ',
@@ -48,6 +52,10 @@ const ValentinePage = () => {
       // Trigger the "Thanks" animation
       setTimeout(() => setShowThanks(true), 100);
     }
+  };
+  const handleNextPage = () => {
+    // Show the input page when the user clicks the arrow button
+    setShowInputPage(true);
   };
 
 
@@ -102,7 +110,7 @@ const ValentinePage = () => {
             alignItems: 'center',
             justifyContent: 'center',
             opacity: 0,
-            animation: 'fadeIn 1s forwards',
+            animation: 'fadeIn 2s forwards',
           }}
         ><Confetti
             active={showLeftConfetti}
@@ -110,7 +118,7 @@ const ValentinePage = () => {
               angle: 90,
               spread: 360,
               startVelocity: 45,
-              elementCount: 140, // Adjust element count as needed
+              elementCount: 240, // Adjust element count as needed
               decay: 0.7,
             }}
           />
@@ -127,8 +135,26 @@ const ValentinePage = () => {
           <h2 style={{ color: 'darkslategray', fontSize: '2em' }}>
             Thanks for being my valentine! Will be seeing you soon! 🥰
           </h2>
+          <button
+            onClick={handleNextPage}
+            style={{
+              backgroundColor: 'violet',
+              color: 'white',
+              borderRadius: '100%',
+              paddingBottom: '30px',
+              marginTop: '15px',
+              paddingTop: '30px',
+              paddingRight: '40px',
+              paddingLeft: '40px',
+              cursor: 'pointer',
+              fontSize: '2em',
+            }}
+          >
+            ➔
+          </button>
         </div>
       )}
+      {showInputPage && <DateInputPage />} {/* Render the new input page component */}
 
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
         <p style={{ color: 'grey', fontSize: '15px' }}>
