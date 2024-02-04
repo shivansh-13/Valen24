@@ -32,16 +32,7 @@ const CelebrationPage = ({ onDone }) => {
             }}
         >
             {/* Confetti animation */}
-            <Confetti
-                active={showConfetti}
-                config={{
-                    angle: 90,
-                    spread: 360,
-                    startVelocity: 45,
-                    elementCount: 140,
-                    decay: 0.7,
-                }}
-            />
+            
 
             {/* Morphing "&" letter */}
             <div
@@ -57,7 +48,16 @@ const CelebrationPage = ({ onDone }) => {
                     transform: 'translate(-50%, -50%)',
                     zIndex: 1, // Place it above the panes
                 }}
-            >
+            ><Confetti
+                active={showConfetti}
+                config={{
+                    angle: 90,
+                    spread: 360,
+                    startVelocity: 65,
+                    elementCount: 340,
+                    decay: 0.7,
+                }}
+            />
                 &
             </div>
 
