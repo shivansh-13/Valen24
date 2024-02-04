@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+import CelebrationPage from './CelebrationPage';
 
-const TimeInputPage = ({ onBack }) => {
+const TimeInputPage = () => {
     const [time, setTime] = useState('');
 
     const handleTimeChange = (event) => {
         // Update the time state when the input value changes
         setTime(event.target.value);
     };
+    const [showCelebration, setShowCelebration] = useState(false);
+
+    const handleNext = () => {
+      // Show the CelebrationPage when the next button is clicked
+      setShowCelebration(true);
+    };
+  
 
     return (
         <div
@@ -32,7 +40,7 @@ const TimeInputPage = ({ onBack }) => {
             </h2>
 
             <h2 style={{  color: 'gray', fontSize: '1.5em' }}>
-                Time to tick-tock your way into the future!
+                Time to tick-tock your way into y(our) future!
             </h2>
 
 
@@ -53,7 +61,7 @@ const TimeInputPage = ({ onBack }) => {
 
             {/* Back button to return to the previous screen */}
             <button
-                onClick={onBack}
+                onClick={handleNext}
                 style={{
                     backgroundColor: 'orange',
                     color: 'white',
@@ -69,6 +77,7 @@ const TimeInputPage = ({ onBack }) => {
             >
                   ➔
             </button>
+            {showCelebration && <CelebrationPage onDone={() => setShowCelebration(false)} />}
         </div>
     );
 };
