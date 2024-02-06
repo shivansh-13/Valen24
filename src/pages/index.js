@@ -82,7 +82,8 @@ const ValentinePage = () => {
         width="200"
         height="200"
         style={{ display: 'block', margin: 'auto', cursor: 'arrow' }}
-        onClick={handleTripleClick} 
+        onClick={handleTripleClick}
+        // onClick={() => console.log('clicked')} 
       />
 
       <div style={{ marginTop: '20px' }}>
@@ -131,7 +132,7 @@ const ValentinePage = () => {
               angle: 90,
               spread: 360,
               startVelocity: 45,
-              elementCount: 240, // Adjust element count as needed
+              elementCount: 240, 
               decay: 0.7,
             }}
           />
@@ -188,7 +189,7 @@ const ValentinePage = () => {
             Glad! You found it. 🐣
           </p>
           <p style={{ fontSize: '1.2em', color: 'black' }}>
-            Happy Valentine's Day, JRZ! ❤️
+            Happy Valentine's Week, JRZ! ❤️
           </p>
         </div>
       )}
