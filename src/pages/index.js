@@ -148,7 +148,7 @@ const ValentinePage = () => {
           <h2 style={{ color: 'darkslategray', fontSize: '2em' }}>
             Thanks for being my valentine! Will be seeing you soon! 🥰
           </h2>
-          <button
+          {/* <button
             onClick={handleNextPage}
             style={{
               backgroundColor: 'violet',
@@ -164,7 +164,7 @@ const ValentinePage = () => {
             }}
           >
             ➔
-          </button>
+          </button> */}
         </div>
       )}
       {showInputPage && <DateInputPage />} {/* Render the new input page component */}
