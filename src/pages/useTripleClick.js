@@ -4,7 +4,6 @@ const useTripleClick = (callback) => {
   const [clickCount, setClickCount] = useState(0);
 
   useEffect(() => {
-    console.log('clickCount:', clickCount); // Log clickCount whenever it changes
   }, [clickCount]);
 
   useEffect(() => {
