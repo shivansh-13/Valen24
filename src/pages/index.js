@@ -74,7 +74,7 @@ const ValentinePage = () => {
       <Analytics />
       <h1 style={{ color: 'black', fontSize: '2em' }}>
         Will you be my 
-        {/* valentine? */}
+        valentine?
       </h1>
       <img
         src="/panda.gif"
