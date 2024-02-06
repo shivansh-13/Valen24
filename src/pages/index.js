@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Confetti from 'react-dom-confetti';
 import DateInputPage from './DateInputPage'; // Import the new component
 import { Analytics } from '@vercel/analytics/react';
+import useTripleClick from './useTripleClick'; // Import the custom hook
 
 const ValentinePage = () => {
   const [yesButtonSize, setYesButtonSize] = useState(1);
@@ -10,15 +11,15 @@ const ValentinePage = () => {
   const [showNoButton, setShowNoButton] = useState(true);
   const [showThanks, setShowThanks] = useState(false);
   const [showInputPage, setShowInputPage] = useState(false); // State for the new input page
-
+  const [showEE, setShowEE] = useState(false); // State for the Easter egg
   const [showLeftConfetti, setShowLeftConfetti] = useState(false);
+
 
   useEffect(() => {
     if (showThanks) {
       setTimeout(() => setShowLeftConfetti(true), 200);
     }
   }, [showThanks]);
-  
 
   const persuadeTexts = [
     'Are you sure? ',
@@ -37,6 +38,7 @@ const ValentinePage = () => {
     'Last chance! Say yes and make my day!',
     'You are leaving me no choice! Say yes!'
   ];
+
   const handleClick = (answer) => {
     if (answer === 'No') {
       setYesButtonSize((prevSize) => prevSize + 0.4);
@@ -53,11 +55,18 @@ const ValentinePage = () => {
       setTimeout(() => setShowThanks(true), 100);
     }
   };
+
   const handleNextPage = () => {
-    // Show the input page when the user clicks the arrow button
     setShowInputPage(true);
   };
 
+  const handleTripleClick = useTripleClick(() => {
+    setShowEE(true); // Show the Easter egg message
+  });
+
+  const handleCloseEE = () => {
+    setShowEE(false); // Close the Easter egg message
+  };
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -70,7 +79,8 @@ const ValentinePage = () => {
         alt="Cute Panda"
         width="200"
         height="200"
-        style={{ display: 'block', margin: 'auto' }}
+        style={{ display: 'block', margin: 'auto', cursor: 'arrow' }}
+        onClick={handleTripleClick} // Handle triple click for Easter egg
       />
 
       <div style={{ marginTop: '20px' }}>
@@ -97,7 +107,6 @@ const ValentinePage = () => {
       </div>
 
       {showThanks && (
-
         <div
           style={{
             position: 'fixed',
@@ -113,8 +122,9 @@ const ValentinePage = () => {
             opacity: 0,
             animation: 'fadeIn 2s forwards',
           }}
-        ><Confetti
-            active={showLeftConfetti}
+        >
+          <Confetti
+            active={showLeftConfetti }
             config={{
               angle: 90,
               spread: 360,
@@ -156,6 +166,30 @@ const ValentinePage = () => {
         </div>
       )}
       {showInputPage && <DateInputPage />} {/* Render the new input page component */}
+      {showEE && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            padding: '20px',
+            borderRadius: '10px',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+            zIndex: '9999',
+            cursor:'arrow'
+          }}
+          onClick={handleCloseEE}
+        >
+          <p style={{ fontSize: '1.5em', color: 'black' }}>
+            Glad! You found it. 🐣
+          </p>
+          <p style={{ fontSize: '1.2em', color: 'black' }}>
+            Happy Valentine's Day, JRZ! ❤️
+          </p>
+        </div>
+      )}
 
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
         <p style={{ color: 'grey', fontSize: '15px' }}>
