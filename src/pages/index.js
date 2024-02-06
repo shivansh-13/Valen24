@@ -186,7 +186,7 @@ const ValentinePage = () => {
           onClick={handleCloseEE}
         >
           <p style={{ fontSize: '1.5em', color: 'black' }}>
-            Glad! You found it. 🐣
+            Glad! You found it! 🐣
           </p>
           <p style={{ fontSize: '1.2em', color: 'black' }}>
             Happy Valentine's Week, JRZ! ❤️
