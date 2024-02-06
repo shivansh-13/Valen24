@@ -4,6 +4,7 @@ import DateInputPage from './DateInputPage'; // Import the new component
 import { Analytics } from '@vercel/analytics/react';
 import useTripleClick from './useTripleClick'; // Import the custom hook
 
+
 const ValentinePage = () => {
   const [yesButtonSize, setYesButtonSize] = useState(1);
   const [persuadeText, setPersuadeText] = useState('');
@@ -72,7 +73,8 @@ const ValentinePage = () => {
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <Analytics />
       <h1 style={{ color: 'black', fontSize: '2em' }}>
-        Will you be my valentine?
+        Will you be my 
+        {/* valentine? */}
       </h1>
       <img
         src="/panda.gif"
@@ -80,7 +82,7 @@ const ValentinePage = () => {
         width="200"
         height="200"
         style={{ display: 'block', margin: 'auto', cursor: 'arrow' }}
-        onClick={handleTripleClick} // Handle triple click for Easter egg
+        onClick={handleTripleClick} 
       />
 
       <div style={{ marginTop: '20px' }}>
@@ -192,8 +194,8 @@ const ValentinePage = () => {
       )}
 
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
-        <p style={{ color: 'grey', fontSize: '15px' }}>
-          Made by <a href="https://github.com/shivansh-13" style={{ color: 'grey', textDecoration: 'underline' }}>Shivansh S</a> with love 💜
+        <p style={{ color: 'grey', fontSize: '10px' }}>
+          Need sponsorship to keep systems up and running <a href="https://github.com/sponsors/shivansh-13" style={{ color: 'grey', textDecoration: 'underline' }}> Github Sponsorship</a> Love 💜
         </p>
       </div>
 
