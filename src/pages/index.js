@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Confetti from 'react-dom-confetti';
 import DateInputPage from './DateInputPage'; // Import the new component
-
+import { Analytics } from '@vercel/analytics/react';
 
 const ValentinePage = () => {
   const [yesButtonSize, setYesButtonSize] = useState(1);
@@ -61,6 +61,7 @@ const ValentinePage = () => {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <Analytics />
       <h1 style={{ color: 'black', fontSize: '2em' }}>
         Will you be my valentine?
       </h1>
