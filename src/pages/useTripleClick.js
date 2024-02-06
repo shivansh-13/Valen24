@@ -5,7 +5,7 @@ const useTripleClick = (callback) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (clickCount === 3) {
+      if (clickCount === 7) {
         callback();
         setClickCount(0);
       }
