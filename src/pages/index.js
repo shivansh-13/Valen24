@@ -3,6 +3,7 @@ import Confetti from 'react-dom-confetti';
 import DateInputPage from './DateInputPage'; // Import the new component
 import { Analytics } from '@vercel/analytics/react';
 import useTripleClick from './useTripleClick'; // Import the custom hook
+import Advertisement from './Advertisement';
 
 
 const ValentinePage = () => {
@@ -73,7 +74,7 @@ const ValentinePage = () => {
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <Analytics />
       <h1 style={{ color: 'black', fontSize: '2em' }}>
-        Will you be my 
+        Will you be my
         valentine?
       </h1>
       <img
@@ -83,7 +84,7 @@ const ValentinePage = () => {
         height="200"
         style={{ display: 'block', margin: 'auto', cursor: 'arrow' }}
         onClick={handleTripleClick}
-        // onClick={() => console.log('clicked')} 
+      // onClick={() => console.log('clicked')} 
       />
 
       <div style={{ marginTop: '20px' }}>
@@ -127,12 +128,12 @@ const ValentinePage = () => {
           }}
         >
           <Confetti
-            active={showLeftConfetti }
+            active={showLeftConfetti}
             config={{
               angle: 90,
               spread: 360,
               startVelocity: 45,
-              elementCount: 240, 
+              elementCount: 240,
               decay: 0.7,
             }}
           />
@@ -181,7 +182,7 @@ const ValentinePage = () => {
             borderRadius: '10px',
             boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
             zIndex: '9999',
-            cursor:'arrow'
+            cursor: 'arrow'
           }}
           onClick={handleCloseEE}
         >
@@ -194,8 +195,15 @@ const ValentinePage = () => {
         </div>
       )}
 
+      
+
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
-        <p style={{ color: 'grey', fontSize: '10px' }}>
+      <a href={"https://amzn.to/3Uz9Rjf"} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <div style={{ margin: 'auto', display: 'inline-block', color: 'black', cursor: 'pointer' }}>
+          <Advertisement />
+        </div>
+      </a>
+        <p style={{ color: 'grey', fontSize: '10px', marginTop:'5px' }}>
           Need sponsorship to keep systems up and running <a href="https://github.com/sponsors/shivansh-13" style={{ color: 'grey', textDecoration: 'underline' }}> Github Sponsorship</a> Love 💜
         </p>
       </div>
