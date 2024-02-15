@@ -198,7 +198,7 @@ const ValentinePage = () => {
       
 
       <div style={{ marginTop: 'auto', position: 'absolute', bottom: '0', width: '100%' }}>
-      <a href={"https://amzn.to/3Uz9Rjf"} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <a href={"https://amzn.to/3UKxplh"} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div style={{ margin: 'auto', display: 'inline-block', color: 'black', cursor: 'pointer' }}>
           <Advertisement />
         </div>

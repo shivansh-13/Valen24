@@ -3,10 +3,10 @@ import React from 'react';
 const Advertisement = () => {
   // Hardcoded product information
   const product = {
-    name: "Valentines Day Gift Basket | Stuffed Animal Plush Dog Puppy | Hersheys Kisses Milk Chocolate Box | V-Day Gift Bag & Card Tag |",
-    image: "https://m.media-amazon.com/images/I/81+VLnWFQcL._SL1500_.jpg",
-    ratings: 4.5,
-    numberOfRatings: 30,
+    name: "Upgraded Portable Hand Mini Fan,15H Working Time,Quiet,Lightweight,4 Speed,Hand Fans for Women with 180° Foldable",
+    image: "https://m.media-amazon.com/images/I/71pW5KLwa4L._AC_SL1500_.jpg",
+    ratings: 5,
+    numberOfRatings: 68,
   };
 
   const renderStarRating = () => {
