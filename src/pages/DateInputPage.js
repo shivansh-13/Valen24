@@ -22,6 +22,9 @@ const DateInputPage = () => {
 
     const handleNextPage = () => {
       // Show the LocationInputPage when the user clicks the arrow button
+      localStorage.setItem('day', day);
+      localStorage.setItem('month', month);
+      localStorage.setItem('year', year);
       setShowLocationPage(true);
     };
     return (

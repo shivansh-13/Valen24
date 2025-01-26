@@ -12,6 +12,7 @@ const TimeInputPage = () => {
 
     const handleNext = () => {
       // Show the CelebrationPage when the next button is clicked
+      localStorage.setItem('time', time);
       setShowCelebration(true);
     };
   

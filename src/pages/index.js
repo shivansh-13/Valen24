@@ -188,7 +188,7 @@ const ValentinePage = () => {
             Glad! You found it. 🐣
           </p>
           <p style={{ fontSize: '1.2em', color: 'black' }}>
-            Happy Valentine's Day, JRZ! ❤️
+            Happy Valentine's Day, Muskan! ❤️
           </p>
         </div>
       )}

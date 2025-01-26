@@ -20,13 +20,14 @@ const WhiteScreen = () => (
     >
         <div>
             <p className="fade-in-text" style={{ fontSize: '3em', margin: 0, color: 'black', fontWeight: 'bolder' }}>
-                On 14 February
+                On 
+                {localStorage.getItem('day') || '--'}/{localStorage.getItem('month') || '--'}/{localStorage.getItem('year') || '--'}
             </p>
             <p className="fade-in-text" style={{ fontSize: '3em', margin: 0, color: 'black', fontWeight: 'bolder' }}>
-                5:00 pm
+                {localStorage.getItem('time') || '--:--'}
             </p>
             <p className="fade-in-text" style={{ fontSize: '3em', margin: 0, color: 'black', fontWeight: 'bolder' }}>
-                at Hard Rock Cafe
+                at {localStorage.getItem('selectedLocation') || 'Location'}
             </p>
             <div className="fade-in-text" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img
